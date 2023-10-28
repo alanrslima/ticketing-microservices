@@ -14,7 +14,15 @@ spec:
     spec:
       containers:
         - name: auth
-          image: us.gcr.io/peaceful-crane-403120/auth
+          image: alanrslima/auth
+          # - name: auth
+          #   image: us.gcr.io/peaceful-crane-403120/auth
+          env:
+            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secret
+                  key: JWT_KEY
 ---
 apiVersion: v1
 kind: Service

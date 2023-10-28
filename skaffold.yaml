@@ -5,12 +5,13 @@ deploy:
     manifests:
       - ./infra/k8s/*
 build:
-  # local:
-  #   push: false
-  googleCloudBuild:
-    projectId: peaceful-crane-403120
+  local:
+    push: false
+  # googleCloudBuild:
+  #   projectId: peaceful-crane-403120
   artifacts:
-    - image: us.gcr.io/peaceful-crane-403120/auth
+    # - image: us.gcr.io/peaceful-crane-403120/auth
+    - image: alanrslima/auth
       context: auth
       docker:
         dockerfile: Dockerfile
