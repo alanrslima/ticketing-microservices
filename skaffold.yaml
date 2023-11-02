@@ -25,5 +25,13 @@ build:
         dockerfile: Dockerfile
       sync:
         manual:
+          - src: "src/**/*.{tsx,ts}"
+            dest: .
+    - image: alanrslima/tickets
+      context: tickets
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
           - src: "src/**/*.ts"
             dest: .
