@@ -6,7 +6,7 @@ import { natsWrapper } from "../../nats-wrapper";
 import mongoose from "mongoose";
 
 it("should cancel an order", async () => {
-  const id = new mongoose.Types.ObjectId().toString();
+  const id = new mongoose.Types.ObjectId().toHexString();
   const ticket = Ticket.build({ title: "new ticket", price: 20, id });
   await ticket.save();
 
@@ -28,7 +28,7 @@ it("should cancel an order", async () => {
 });
 
 it("returns an error if one user tries to cancel another user order", async () => {
-  const id = new mongoose.Types.ObjectId().toString();
+  const id = new mongoose.Types.ObjectId().toHexString();
 
   const ticket = Ticket.build({ title: "concert", price: 20, id });
   await ticket.save();
@@ -57,7 +57,7 @@ it("returns an error if one user tries to cancel a order that not exists", async
 });
 
 it("emits a order cancelled event", async () => {
-  const id = new mongoose.Types.ObjectId().toString();
+  const id = new mongoose.Types.ObjectId().toHexString();
 
   const ticket = Ticket.build({ title: "new ticket", price: 20, id });
   await ticket.save();
